@@ -1,0 +1,8 @@
+SECRET_KEY = my_security_key
+DEBUG = True
+
+NAME_DB = 'my_db'
+USER_DB = 'my_user'
+PASSWORD_DB = '123'
+HOST_DB = '172.17.0.1'
+PORT_DB = 'port'
