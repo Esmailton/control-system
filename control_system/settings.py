@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'apps.core',
     'apps.sales',
-    'account',
+    'apps.authentication',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
@@ -144,5 +145,5 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-LOGOUT_REDIRECT_URL = 'login'
 LOGIN_REDIRECT_URL= 'home'
+LOGOUT_REDIRECT_URL = 'login'

@@ -7,6 +7,22 @@
     <title>TESTE CORE</title>
 </head>
 <body>
-    <h1>COREEEEEEEEEEEEEEEEEEEEEEEEEEE</h1>
+
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'logout' %}">
+            <button type="submit" class="btn btn-success">Logout</button>
+        </a>
+    {% endif %}
+
+    <p>
+        <div class="row">
+          <h4>Olá Seja bem vindo(a)</h1>
+            <h1> {{  request.user }} </h1>
+        </div>
+    </p>
+
+    <h1>HOME</h1>
+
+
 </body>
 </html>
