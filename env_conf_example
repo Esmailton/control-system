@@ -2,7 +2,8 @@ SECRET_KEY = my_security_key
 DEBUG = True
 
 NAME_DB = 'my_db'
-USER_DB = 'my_user'
-PASSWORD_DB = '123'
-HOST_DB = '172.17.0.1'
-PORT_DB = 'port'
+USER_DB = 'user_db'
+PASSWORD_DB = 'password_db'
+HOST_DB = 'host_db'
+PORT_DB = 'port_db'
+ENGINE_DB='django.db.backends.XXX'
