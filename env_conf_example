@@ -1,9 +1,0 @@
-SECRET_KEY = my_security_key
-DEBUG = True
-
-NAME_DB = 'my_db'
-USER_DB = 'user_db'
-PASSWORD_DB = 'password_db'
-HOST_DB = 'host_db'
-PORT_DB = 'port_db'
-ENGINE_DB='django.db.backends.XXX'
