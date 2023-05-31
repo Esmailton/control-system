@@ -23,10 +23,8 @@ class UserCreationForm(forms.ModelForm):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
-            raise ValidationError(_("Os passwords precisam ser iguais"))
+            raise ValidationError(_("Passwords must be the same!"))
         return password2
-    
-    
     
 class UserChangeForm(forms.ModelForm):
 
