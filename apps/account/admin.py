@@ -26,6 +26,16 @@ class UserCreationForm(forms.ModelForm):
             raise ValidationError(_("Passwords must be the same!"))
         return password2
     
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        password = self.cleaned_data["password1"]
+        if password:
+            user.set_password(password)
+        if commit:
+            user.save()
+        return user
+
+
 class UserChangeForm(forms.ModelForm):
 
     password = ReadOnlyPasswordHashField()
@@ -38,26 +48,17 @@ class UserAdmin(BaseUserAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
 
-    list_display = ['username','person', 'email', 'date_joined', 'is_active', 'is_admin', 'is_staff','is_admin']
+    list_display = ['username','person', 'date_joined', 'is_active', 'is_admin', 'is_staff','is_admin']
     list_filter =['is_admin', 'is_active']
 
-    fieldsets = (
-        (None, {'fields': ('username', 'password')}),
-        ('Personal info', {'fields': ('first_name', 'last_name', 'email', 'avatar', 'person')}),
+    add_fieldsets =[
+        (None, {"fields": ["username", "password1", "password2"]}),
+        ('Personal info', {'fields': ('person',)}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'is_admin')}),
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
-    )
-    add_fieldsets =[
-        (
-            None,
-            {
-                "classes": ["wide"],
-                "fields": ["email", "password1", "password2"],
-            },
-        ),
     ]
 
-    search_fields = ["email", "username"]
+    search_fields = ["username"]
     ordering = ["username"]
     filter_horizontal =[]
 
