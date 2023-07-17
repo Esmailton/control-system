@@ -1,0 +1,6 @@
+TEM CERTEZA QUE DESEJA APAGAR O CLIENT '{{ object.name }}'
+<form action="." method="post">
+    {% csrf_token %}
+    <input type="submit">Deletar</input>
+    <input type="reset">Cancelar</input>
+</form>

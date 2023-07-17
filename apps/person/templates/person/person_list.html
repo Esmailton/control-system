@@ -1,0 +1,9 @@
+<ul>
+    {% for person in object_list %}
+    <li> 
+        <a href="{{ person.get_absolute_url }}" >{{ person.name }}</a>
+        <a href="{% url 'person:person_update' person.pk %}" ><strong>EDIT</strong></a>
+        <a href="{% url 'person:person_delete' person.pk %}" ><strong>DELETE</strong></a>
+    </li>
+    {% endfor %}
+</ul>
