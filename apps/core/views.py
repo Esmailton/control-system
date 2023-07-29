@@ -1,3 +1,11 @@
 from django.shortcuts import render
+from django.views import View
+from django.http import HttpRequest
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-# Create your views here.
+
+class Dashboad(LoginRequiredMixin, View):
+
+    def get(self, request: HttpRequest):
+
+        return render(request, 'dashboard/dashboard.html', {'name': 'Esmailton Silva Gomes'})
