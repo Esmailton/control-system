@@ -20,7 +20,7 @@ class Person(Base, models.Model):
             UniqueConstraint(
                "name",
                "document",
-                name='name_document_acronym',
+                name='unique_name_document',
             ),
         ]
 
@@ -39,6 +39,7 @@ class Email(Base, models.Model):
     class Meta:
         verbose_name = _('E-mail')
         verbose_name_plural = _('E-mails')
+        ordering = ['-create_at']
 
     def __str__(self):
         return self.email
@@ -54,6 +55,7 @@ class Phone(Base, models.Model):
     class Meta:
         verbose_name = _('Phone')
         verbose_name_plural = _('Phones')
+        ordering = ['-create_at']
 
     def __str__(self):
         return self.phone
