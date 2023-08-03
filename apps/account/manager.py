@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 class UserManager(BaseUserManager):
 
     def create_user(self, username, password, **extra_fields):
-        if not username:
+        if not username:    
             raise ValueError(_("User must have username"))
         user = self.model(username=username, **extra_fields)
         user.set_password(password)
