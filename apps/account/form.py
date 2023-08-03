@@ -26,12 +26,11 @@ class UserCreationForm(forms.ModelForm):
     
     def save(self, commit=True):
         user = super().save(commit=False)
-        password = self.cleaned_data["password"]
-        if password:
-            user.set_password(password)
+        user.set_password(self.cleaned_data["password"])
         if commit:
             user.save()
         return user
+
 
 
 class UserChangeForm(forms.ModelForm):
