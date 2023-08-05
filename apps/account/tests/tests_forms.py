@@ -63,6 +63,7 @@ class UserCreationFormTest(TestCase):
             'username': self.username,
             'password': self.password,
             'password2': self.password,
+            'date_joined': date.today()
         }
 
         form = UserCreationForm(data=form_data)
@@ -75,6 +76,7 @@ class UserCreationFormTest(TestCase):
             'username': self.username,
             'password': self.password,
             'password2': self.password,
+            'date_joined': date.today()
         }
         form = UserCreationForm(data=form_data)
         with patch.object(UserCustom, 'save') as mock_save:
