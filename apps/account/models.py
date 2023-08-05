@@ -6,9 +6,8 @@ from django.utils.translation import gettext_lazy as _
 from .manager import UserManager
 
 
-
 class UserCustom(Base, AbstractUser):
-    avatar = models.ImageField(upload_to=u"img/thumb/%Y/%m/%d", blank=True, null=True)
+    avatar = models.ImageField(_('Avatar'), upload_to=u"img/thumb/%Y/%m/%d", blank=True, null=True)
     person = models.OneToOneField(Person, on_delete=models.CASCADE, related_name="person_of_user", blank=True, null=True, verbose_name=_('Pessoa') )
     is_admin = models.BooleanField(_('Administrator'), default=False)
 
