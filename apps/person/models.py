@@ -15,7 +15,7 @@ class Person(Base, models.Model):
     class Meta:
         verbose_name = _('Person')
         verbose_name_plural = _('Persons')
-        ordering = ['create_at']
+        ordering = ['-create_at']
         constraints = [
             UniqueConstraint(
                "name",
