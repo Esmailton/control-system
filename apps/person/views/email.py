@@ -1,6 +1,5 @@
-from django.shortcuts import render
 from django.views import generic
-from apps.person.models import Person, Email
+from apps.person.models import Email
 from django.urls import reverse_lazy
 from ..forms import EmailForm
 

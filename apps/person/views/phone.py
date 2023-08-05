@@ -1,6 +1,5 @@
-from django.shortcuts import render
 from django.views import generic
-from apps.person.models import Person, Phone
+from apps.person.models import Phone
 from django.urls import reverse_lazy
 from ..forms import PhoneForm
 

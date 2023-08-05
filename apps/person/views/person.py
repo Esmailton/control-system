@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views import generic
 from apps.person.models import Person
 from django.urls import reverse_lazy
