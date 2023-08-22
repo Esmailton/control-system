@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <ul>
+            {% for category in object_list %}
+            <li> 
+                <a href="{{ category.get_absolute_url }}" >{{ category.name }}</a>
+                <a href="{% url 'business:category_update' category.pk %}" ><strong>EDIT</strong></a>
+                <a href="{% url 'business:category_delete' category.pk %}" ><strong>DELETE</strong></a>
+            </li>
+            {% endfor %}
+        </ul>    
+    </body>
+</html>
