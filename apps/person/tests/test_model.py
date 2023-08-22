@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 from .person_base_test import FakeDataFactory
 from parameterized import parameterized
 
-''
+
 class PersonModelTest(TestCase):
     
     def setUp(self):

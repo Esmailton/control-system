@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <ul>
+            {% for product in object_list %}
+            <li> 
+                <a href="{{ product.get_absolute_url }}" >{{ product.name }}</a>
+                <a href="{% url 'business:product_update' product.pk %}" ><strong>EDIT</strong></a>
+                <a href="{% url 'business:product_delete' product.pk %}" ><strong>DELETE</strong></a>
+            </li>
+            {% endfor %}
+        </ul>    
+    </body>
+</html>
