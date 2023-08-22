@@ -19,8 +19,6 @@ class FakeDataFactory:
 
     def create_product(self):
 
-        # breakpoint()
-
         name = self.fake.word()
         description = self.fake.text()
         price = self.fake.random_int(min=1, max=100)
