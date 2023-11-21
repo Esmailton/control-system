@@ -111,3 +111,16 @@ class ServiceModelTest(TestCase):
             f'/service/detail/{self.service.id}/',
             self.service.get_absolute_url()
         )
+
+class inventoryModelTest(TestCase):
+    def setUp(self):
+        self.factory = FakeDataFactory()
+        self.inventory = self.factory.create_inventory()
+
+    def test_inventory_representation(self):
+        self.assertEqual(
+            str(self.inventory.quantity),
+            str(self.inventory)
+        )
+    def test_inventory_absolute_url(self):
+        self.assertEqual(self.inventory.get_absolute_url(), f'/inventory/detail/{self.inventory.id}/')

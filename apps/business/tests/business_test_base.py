@@ -1,4 +1,4 @@
-from ..models import Category, MeasureType, Stock, Service, Product
+from ..models import Category, MeasureType, Inventory, Service, Product
 from faker import Faker
 
 class FakeDataFactory:
@@ -54,4 +54,14 @@ class FakeDataFactory:
             price=price,
             picture=picture,
             product=product
+        )
+    
+    def create_inventory(self):
+        product = self.create_product()
+        quantity = 10
+        reorder_point = 20
+        return Inventory.objects.create(
+            product = product,
+            quantity = quantity,
+            reorder_point = reorder_point
         )

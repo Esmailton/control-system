@@ -1,13 +1,11 @@
 from django import forms
-from .models import Category, Product, Service, MeasureType
-
+from .models import Category, Product, Service, MeasureType, Inventory
 
 class CategoryForm(forms.ModelForm):
     
     class Meta:
         model = Category
         fields = ['name']
-
 
 class ProductForm(forms.ModelForm):
     
@@ -46,4 +44,14 @@ class MeasureTypeForm(forms.ModelForm):
                     'description', 
                     'acronym', 
                     'measure_type'
+                ]
+
+class InventoryForm(forms.ModelForm):
+    
+    class Meta:
+        model = Inventory
+        fields = [
+                    'product', 
+                    'quantity', 
+                    'reorder_point', 
                 ]

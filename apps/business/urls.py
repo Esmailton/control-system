@@ -1,5 +1,5 @@
 from django.urls import path
-from apps.business.views import category, measure_type, service, product
+from apps.business.views import category, measure_type, service, product, inventory
 
 app_name = 'business'
 
@@ -27,4 +27,11 @@ urlpatterns = [
     path('measure_type/detail/<uuid:pk>/', measure_type.MeasureTypeDetailView.as_view(), name='measure_type_detail'),
     path('measure_type/update/<uuid:pk>/', measure_type.MeasureTypeUpdateView.as_view(), name='measure_type_update'),
     path('measure_type/delete/<uuid:pk>/', measure_type.MeasureTypeDeleteView.as_view(), name='measure_type_delete'),
+
+    path('inventory/list/', inventory.InventoryListView.as_view(), name='inventory_list'),
+    path('inventory/create/', inventory.InventoryCreateView.as_view(), name='inventory_create'),
+    path('inventory/detail/<uuid:pk>/', inventory.InventoryDetailView.as_view(), name='inventory_detail'),
+    path('inventory/update/<uuid:pk>/', inventory.InventoryUpdateView.as_view(), name='inventory_update'),
+    path('inventory/delete/<uuid:pk>/', inventory.InventoryDeleteView.as_view(), name='inventory_delete'),
+
 ]
