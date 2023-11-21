@@ -114,17 +114,17 @@ class Service(Base, models.Model):
         return self.name
 
 
-class Stock(Base, models.Model):
-    product = models.OneToOneField(Product, on_delete=models.CASCADE, related_name='product_stock')
+class Inventory(Base, models.Model):
+    product = models.OneToOneField(Product, on_delete=models.CASCADE, related_name='product_inventory')
     quantity = models.PositiveIntegerField(default=0)
     reorder_point = models.PositiveIntegerField(default=10)
 
     class Meta:
-        verbose_name = _("Stock")
-        verbose_name_plural = _("Stocks")
+        verbose_name = _("inventory")
+        verbose_name_plural = _("inventory")
 
     def __str__(self):
-        return self.quantity
+        return f'{self.quantity}'
     
     def get_absolute_url(self):
-        return reverse("stock_detail", kwargs={"pk": self.pk})
+        return reverse("business:inventory_detail", kwargs={"pk": self.pk})

@@ -53,13 +53,13 @@ class PersonViewsTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_person_detail_view_return_status_code_200(self):
-        person_id = Person.objects.all().first().id
+        person_id = Person.objects.first().id
         url_person_detail = reverse('person:person_detail', kwargs={'pk': person_id})
         response = self.client.get(url_person_detail)
         self.assertEqual(response.status_code, 200)
 
     def test_person_detail_view_render_correct_template(self):
-        person_id = Person.objects.all().first().id
+        person_id = Person.objects.first().id
         url = reverse('person:person_detail', kwargs={'pk': person_id})
         response = self.client.get(url)
         self.assertTemplateUsed(response, 'person/person_detail.html')
