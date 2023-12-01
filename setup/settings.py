@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'apps.person.apps.PersonConfig',
     'apps.address.apps.AddressConfig',
     'apps.business.apps.BusinessConfig',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -96,11 +97,10 @@ TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
 
 USE_TZ = True
-STATIC_URL = 'static/'
-
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 AUTH_USER_MODEL = "account.UserCustom"
-
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
