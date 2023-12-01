@@ -94,7 +94,7 @@ class Service(Base, models.Model):
     description = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     picture = models.ImageField(_('Picture'), upload_to=u"img/thumb/%Y/%m/%d", blank=True, null=True)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=True, related_name='product_service')
+    product = models.ManyToManyField(Product)
 
     class Meta:
         verbose_name = _('Service')
@@ -122,6 +122,7 @@ class Inventory(Base, models.Model):
     class Meta:
         verbose_name = _("inventory")
         verbose_name_plural = _("inventory")
+        ordering = ['-create_at']
 
     def __str__(self):
         return f'{self.quantity}'

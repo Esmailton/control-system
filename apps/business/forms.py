@@ -1,5 +1,8 @@
 from django import forms
 from .models import Category, Product, Service, MeasureType, Inventory
+from django.contrib.admin.widgets import AutocompleteSelectMultiple, AutocompleteSelect
+from django.contrib import admin
+
 
 class CategoryForm(forms.ModelForm):
     
@@ -24,6 +27,10 @@ class ProductForm(forms.ModelForm):
         ]
 
 class ServiceForm(forms.ModelForm):
+    product = forms.ModelMultipleChoiceField(
+        queryset=Product.objects.all(),
+        widget=AutocompleteSelectMultiple(Service._meta.get_field('product'), admin.site)
+    )
 
     class Meta:
         model = Service
